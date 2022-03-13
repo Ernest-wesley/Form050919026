@@ -1,0 +1,92 @@
+<html lang="en" dir="ltr">
+
+<head>
+    <title>ERNEST PROJECT</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <div class="full_page">
+        <div class="form_template">
+            <form action="backend.html">
+                <ul>
+                    <li>
+                        <label for="">Full Name</label>
+                        <input id="fullname" type="text" name="fullname" placeholder="Full Name">
+
+                    </li> <br>
+                    <li>
+                        <label for="">Phone Number</label>
+                        <input id="Phone" type="number" name="Phone" placeholder="Tel number">
+
+                    </li>
+                    <br>
+                    <li>
+                        <label for="">Gender</label>
+                        <select id="gender" name="gender">
+                            <option value="Male">Male </option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </li>
+                    <br />
+                    <li>
+                        <label for="">Relationship Status</label>
+                        <select id="status" name="status">
+                            <option value="Divorced">Divorced </option>
+                            <option value="Single">Single </option>
+                            <option value="Married">Married</option>
+                        </select>
+                    </li>
+                    <br />
+                    <li>
+                        <label for="">Ghana card</label>
+                        <input id="ghana_card" type="text" name="ghana_card" placeholder="Ghana card">
+                    </li>
+                    <br />
+                    <li>
+                        <label for="">Profile</label>
+                        <input id="profile" type="file" name="profile" placeholder="Profile" value="Profile">
+
+                    </li>
+                    <br />
+                    <button id="btn" type="submit"> Submit Form</button>
+                </ul>
+            </form>
+
+
+        </div>
+
+    </div>
+
+    <script>
+        const submitbtn = document.getElementById('btn');
+        const formInfo = {
+            fullname: document.getElementById('fullname'),
+            Phone: document.getElementById('Phone'),
+            ghana_card: document.getElementById('ghana_card'),
+            profile: document.getElementById('profile'),
+            gender: document.getElementById('gender'),
+            status: document.getElementById('status'),
+
+        }
+        const sendInfo = () => {
+            const request = new XMLHttpRequest();
+
+            request.open('POST', 'backend.html', true);
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            requestInfo = `fullname=${formInfo.fullname.value}&Phone=${formInfo.Phone.value}&gender=${formInfo.gender.value}&ghana_card=${formInfo.ghana_card.value}&profile=${formInfo.profile.value}&status=${formInfo.status.value}`;
+
+            request.send(requestInfo);
+
+        }
+
+        submitbtn.addEventListener('submit', sendInfo)
+
+    </script>
+
+</body>
+
+</html>

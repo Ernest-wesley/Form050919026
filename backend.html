@@ -1,0 +1,72 @@
+<html lang="en" dir="ltr">
+
+<head>
+    <title>Backend</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+
+    <form class="receipt_template">
+        <div class="form_data">
+            Profile : <img src="" id="profile" />
+        </div>
+
+        <br />
+        <div class="form_data">
+            Full Name : <p id="fullname"> </p>
+        </div>
+        <br />
+        <div class="form_data">
+            Phone : <p id="tel"> </p>
+        </div>
+        <br />
+
+        <div class="form_data">
+            Gender : <p id="gender"></p>
+        </div>
+        <br />
+        <div class="form_data">
+            Relationship Status : <p id="status"></p>
+        </div>
+        <br />
+        <div class="form_data">
+            GHANA CARD : <p id="ghana_card"> </p>
+        </div>
+
+
+    </form>
+
+
+
+
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        Input = params.get('fullname');
+        Input1 = params.get('Phone');
+        Input2 = params.get('ghana_card');
+        Input3 = params.get('gender');
+        Input4 = params.get('profile');
+        Input5 = params.get('status')
+        console.log(Input);
+        let name = document.getElementById('fullname')
+        let contact = document.getElementById('tel')
+        let ghana = document.getElementById('ghana_card')
+        let gender = document.getElementById('gender')
+        let profile = document.getElementById('profile')
+        let status = document.getElementById('status')
+        name.innerHTML = Input;
+        contact.innerHTML = Input1;
+        ghana.innerHTML = Input2;
+        gender.innerHTML = Input3;
+        profile.src.innerHTML = Input4;
+        status.innerHTML = Input5;
+
+    </script>
+</body>
+
+
+
+</html>
